@@ -1,31 +1,34 @@
 <template>
   <div id="app">
-    <div id="nav" class="p-0">
+
+   
+    <div id="" class="p-0">
       <header-app></header-app>
     </div>
+    <div class="container-main p-0">
     <router-view />
+    </div>
+
+ 
   </div>
 </template>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+
+body, html{
+
+    font-family: Poppins-Regular;
 }
 
-#nav {
-  padding: 30px;
+#app{
+    font-family: Poppins-Regular;
+}
+.container-main{
+  background:#f9f9f9d7;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+@font-face {
+  font-family: Poppins-Regular;
+  src: url("./assets/fonts/Poppins-Regular.ttf");
 }
 </style>

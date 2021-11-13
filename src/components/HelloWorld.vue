@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class="hello p-2">
   <span>hola mundo</span>
   </div>
 </template>
