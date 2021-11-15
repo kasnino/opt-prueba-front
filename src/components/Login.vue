@@ -1,57 +1,79 @@
 <template>
-  <b-row class="p-0 m-0 mt-5 d-flex">
-    <div class="d-flex justify-content-end">
-      <b-col class="col-12">
-        <div class="vue-tempalte p-2">
-          <b-card rounded="lg" class="d-flex justify-center card-login">
-            <form rounded="lg">
-              <div class="text-center d-flex justify-content-center">Ingresa tus datos</div>
+  <v-row class="p-0 m-0 mt-1 d-flex justify-center">
+    <div class="">
+      <v-col class="col-12">
+        <div class="">
+          <v-card class="pa-4 rounded-lg card--login elevation-3" width="410px">
+            <div class="space"></div>
+            <div class="text-center texto--formulario">Ingresa tus datos</div>
 
-              <b-form @submit="onSubmit" @reset="onReset" v-if="show">
-                <b-form-group id="input-group-1" label="" label-for="input-1" class="mt-4">
-                  <b-form-input
-                    id="input-1"
-                    v-model="form.email"
-                    type="Correo"
-                    placeholder="Enter email"
-                    required
-                    class="font-placeholder form-control-lg p-2"
-                     height="40px"   
-                  ></b-form-input>
-                </b-form-group>
-
-                <b-form-group
-                  id="input-group-2"
-                  label=""
-                  class="mt-4"
-                  label-for="input-2"
+            <v-row class="p-0 m-0 mt-4 justify-center">
+              <v-col class="col-9">
+                <v-form ref="form" v-model="valid" lazy-validation class="pa-0 ma-0" >
+                  <div class=" pa-0 ma-0">
+                  <v-text-field
+                    outlined
+                hide-details="auto"
                   
-                >
-                  <b-form-input
-                    id="input-2"
-                    v-model="form.name"
-                    placeholder="contraseña"
-                    required
-                    class="font-placeholder"
-                  ></b-form-input>
-                </b-form-group>
-              </b-form>
+                      height="40"
+                  style="border-width: 2px; font-size: 13px"
+                    v-model="email"
+                    :rules="[rules.required, rules.email]"
+                    placeholder="Correo"
+                    class="pa-0 ma-0 elevation-0"
+                  ></v-text-field>
 
-              <b-row class="p-0 m-0 mt-3">
-                <b-col class="col-12  p-0 m-0">
-                  <div class="d-grid pa-0">
-                    <button class="btn btn-primary" type="button">
-                      Button
-                    </button>
-                  </div>
-                </b-col>
-              </b-row>
-            </form>
-          </b-card>
+                  <v-text-field
+                         outlined
+                hide-details="auto"
+                  
+                      height="40"
+                  style="border-width: 2px; font-size: 13px"
+                    v-model="password"
+                    :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+                    :type="show1 ? 'text' : 'password'"
+                    placeholder="Contraseña"
+                    :rules="[rules.required]"
+                    @click:append="show1 = !show1"
+                    class="pa-0 ma-0 mt-3 elevation-0"
+              
+                  ></v-text-field>
+                </div>
+                  <span class="texto--login pa-0 ma-0 mt-3"><a>¿Olvidaste la contraseña?</a></span>
+
+                  <v-btn
+                    color="#e30613"
+                    class="text-white elevation-3 rounded-lg  mt-6 text-capitalize font-weight-bold"
+                    block
+                    height="45"
+                    @click="resetValidation"
+                    style="color:white; font-family: Poppins-Regular; "
+                  >
+                    Ingresar
+                  </v-btn>
+                </v-form>
+
+                  <v-row class=" mt-1 justify-center d-flex text-center">
+              <v-col class="col-8 d-flex justify-end">
+                <a href="">
+                 <span class="texto--login-down pa-0 ma-0 ">¿No tienes una cuenta aún?</span>
+              </a>
+              </v-col>
+              <v-col class="col-4 d-flex justify-start">
+                <a>
+                 <span class="texto--login-down pa-0 ma-0 ">!Registrate¡</span>
+                </a>
+                
+              </v-col>
+              <div class="space--down"></div>
+                  </v-row>
+              </v-col>
+            </v-row>
+          </v-card>
         </div>
-      </b-col>
+      </v-col>
     </div>
-  </b-row>
+  </v-row>
 </template>
 
 <script>
@@ -60,9 +82,10 @@ export default {
     return {
       form: {
         email: "",
-        name: "",
+         password: 'Password',
         food: null,
         checked: [],
+        
       },
       foods: [
         { text: "Select One", value: null },
@@ -72,82 +95,64 @@ export default {
         "Corn",
       ],
       show: true,
+      show1: false,
+      email: '',
+       rules: {
+          required: value => !!value || 'Requerido.',
+          min: v => v.length >= 8 || 'Min 8 characters',
+          email: value => {
+            const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            return pattern.test(value) || 'Invalido e-mail.'
+          },
+        },
+     
     };
+  
   },
+    methods:{
+        resetValidation(){
+          return this.$router.push({name:'dashboard'});
+        }
+    }
 };
 </script>
 <style lang="scss" scoped>
-a {
+a{
+  color: #e30613 !important;
   text-decoration: none;
 }
-.card-login {
-  border-radius: 15px;
-  box-shadow: 0 1px 6px rgba(182, 182, 182, 0.75);
+.space{
+  width: 100%;
+  height:65px;
+ 
 }
-label {
-  font-weight: 500;
+.space--down{
+  width: 100%;
+  height:45px;
+ 
 }
-
-.forgot-password,
-.forgot-password a {
-  text-align: left;
-  font-size: 13px;
-  padding-top: 10px;
-  color: #7a7a7a;
-  margin: 0;
-}
-
-.forgot-password a {
-  color: #2554ff;
+.texto--formulario{
+   font-family: Poppins-Regular;
+   font-size: 12px;
+    color: #666666;
 }
 
-.social-icons {
-  text-align: center;
-  font-family: "Open Sans";
-  font-weight: 300;
-  font-size: 1.5em;
-  color: #222222;
-}
-
-.social-icons ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.social-icons ul li {
-  display: inline-block;
-  zoom: 1;
-  width: 65px;
-  vertical-align: middle;
-  border: 1px solid #e3e8f9;
-  font-size: 15px;
-  height: 40px;
-  line-height: 40px;
-  margin-right: 5px;
-  background: #f4f6ff;
-}
-
-.social-icons ul li a {
-  display: block;
-  font-size: 1.4em;
-  margin: 0 5px;
-  text-decoration: none;
-}
-.social-icons ul li a i {
-  -webkit-transition: all 0.2s ease-in;
-  -moz-transition: all 0.2s ease-in;
-  -o-transition: all 0.2s ease-in;
-  -ms-transition: all 0.2s ease-in;
-  transition: all 0.2s ease-in;
-}
-
-.social-icons ul li a:focus i,
-.social-icons ul li a:active i {
-  transition: none;
-  color: #222222;
-}
-
-.font-placeholder{
+.texto--login{
+  color:#e30613 !important;
+    font-family: Poppins-Regular;
     font-size: 13px;
+  
+}
+
+.texto--login-down{
+  color:#e30613 !important;
+    font-family: Poppins-Regular;
+    font-size: 12px;
+    font-weight: 600;
+  
+}
+
+.card--login{
+  border-radius: 21px !important;
 }
 </style>

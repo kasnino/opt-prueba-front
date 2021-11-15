@@ -1,34 +1,52 @@
 <template>
-  <div id="app">
-
-   
-    <div id="" class="p-0">
-      <header-app></header-app>
-    </div>
-    <div class="container-main p-0">
-    <router-view />
-    </div>
-
- 
-  </div>
+  <v-app>
+  <component :is="layout"></component>
+  </v-app>
 </template>
 
-<style lang="scss">
-
-body, html{
-
-    font-family: Poppins-Regular;
+<script>
+import PortadaLayout from './components/layouts/Portada'
+import DashboardLayout from './components/layouts/Dashboard'
+export default {
+  name: "App",
+   components: {PortadaLayout, DashboardLayout},
+ data () {
+      return {
+        layout: 'portada-layout'
+      }
+    }
+};
+</script>
+<style lang="scss" scoped>
+.container--main{
+  background: #f9f9f9;
 }
 
-#app{
-    font-family: Poppins-Regular;
+div.v-input__slot {
+  padding: 0 0px !important;
 }
-.container-main{
-  background:#f9f9f9d7;
+.custom-text-field.v-text-field.v-text-field--enclosed .v-input__slot {
+  padding: 0 !important; 
+    border-color: none !important;
 }
 
 @font-face {
   font-family: Poppins-Regular;
   src: url("./assets/fonts/Poppins-Regular.ttf");
+}
+
+.theme--light.v-text-field > .v-input__control > .v-input__slot:before{
+  border-color: none !important;
+}
+.theme--light.v-text-field:not(.v-input--has-state):hover > .v-input__control > .v-input__slot:before {
+    border-color: none !important;
+}
+
+input{
+  margin-left: 5px;
+}
+
+.v-input__icon--append .v-icon { 
+    color: purple !important;
 }
 </style>
