@@ -2,7 +2,7 @@
   <div class="about">
     <div class="text-center"></div>
     <div class="ml-8 mt-5 texto--registro">Bienvenido al dashboard</div>
-    <v-row class=" justify-center pa-0 ma-0  " style="width:100%; ">
+    <v-row class="justify-center pa-0 ma-0" style="width: 100%">
       <v-col
         cols="12"
         md="5"
@@ -18,17 +18,20 @@
         cols="12"
         md="7"
         lg="7"
-        class="d-flex yellow justify-center align-center text-center"
+        class="d-flex justify-center align-center text-center"
         :class="{
           'pa-1 ma-0 justify-center d-flex text-center':
             $vuetify.breakpoint.xsOnly,
         }"
       >
-        <v-row class="justify-center pa-0 ma-0  " style="width:100%; ">
-          <v-col class="col-12 mt-2 justify-center align-center pa-0 ma-0">
+        <v-row class="justify-center pa-0 ma-0" style="width: 100%">
+          <v-col
+            sm="11"
+            class="col-12 mt-2 justify-center align-center pa-0 ma-0"
+          >
             <v-alert
               v-model="alert"
-              class="rounded-lg ma-2 "
+              class="rounded-lg ma-2"
               color="#e30613"
               border="left"
               elevation="2"
@@ -42,23 +45,25 @@
               </div>
             </v-alert>
           </v-col>
-         <v-row class=" justify-center pa-0 ma-0  " style="width:100%; ">
+          <v-row class="justify-center pa-0 ma-0" style="width: 100%">
             <v-col
+              sm="11"
               class="col-12 ml-3 d-flex justify-start align-start text-center"
             >
               <v-card
-                class="pa-4 rounded-lg  scroll card--login elevation-3"
-                
-               style="height:470px; overflow-y:scroll;"
+                class="pa-3 rounded-lg scroll card--login elevation-3"
+                style="height: 470px; overflow-y: scroll"
               >
                 <v-row class="p-0 m-0 mt-0 justify-center">
                   <v-col class="col-12">
                     <div class="pa-0 ma-0">
-                      <v-row
-                        style="opacity: 0.86; "
-                        class="pa-0 ma-0"
-                      >
-                        <v-col cols="11" sm="11" class="pa-0 ma-0 " style="height:470px;" >
+                      <v-row style="opacity: 0.86" class="pa-0 ma-0">
+                        <v-col
+                          cols="12"
+                          sm="11"
+                          class="pa-0 ma-0"
+                          style="height: 470px"
+                        >
                           <v-row class="text-left d-flex justify-center">
                             <v-col
                               class="col-11 mt-2 pa-2 ml-7 d-flex justify-start"
@@ -73,85 +78,8 @@
                           </v-row>
 
                           <v-row class="text-left pa-4 justify-end">
-                            <v-col class="col-12 mt-0 ml-5 pa-2">
-                              <v-row
-                                v-for="(item, index) in 6"
-                                :key="index"
-                                class="text-left d-flex ml-2 justify-center"
-                              >
-                                <v-col
-                                  class="col-3 mt-2 pa-1 d-flex justify-center"
-                                >
-                                  <v-card
-                                    class="
-                                      pa-4
-                                      ml-2
-                                      justify-center
-                                      align-center
-                                      d-flex
-                                      rounded-lg
-                                      elevation-3
-                                    "
-                                    height="85"
-                                    width="85"
-                                  >
-                                    <v-img
-                                        contain
-                                        width="100%"
-                                      :src="require('@/assets/amazon.png')"
-                                    />
-                                  </v-card>
-                                </v-col>
-
-                                <v-col
-                                  class="col-8 mt-2 pa-0  d-flex justify-start"
-                                >
-                                  <div style="line-height: 15px" class="ma-1">
-                                    <v-list-item-subtitle
-                                      class="titulo-texto__card"
-                                      >Login laptop 
-                                      <v-icon
-                                        color="#666666"
-                                        class="ml-1"
-                                        size="20"
-                                      >
-                                        mdi-airplane
-                                      </v-icon>
-                                    </v-list-item-subtitle>
-                                    <div
-                                      class="texto__card--description mt-0"
-                                      style="font-family: Poppins-Regular; font-size:11px;"
-                                    >
-                                      Lenovo Legion 5 Gaming Laptop, pantalla
-                                      IPS FHD (1920 x 1080), procesador AMD
-                                      Ryzen 7 4800H, 16 GB
-                                    </div>
-                                    <v-list-item-subtitle
-                                      class="texto_ver--resaltado"
-                                      >ver más
-                                    </v-list-item-subtitle>
-                                    <v-list-item-subtitle
-                                      class="fecha--card mt-1"
-                                      >17/07/2021
-                                    </v-list-item-subtitle>
-                                  </div>
-                                </v-col>
-
-                                <v-col
-                                  class="col-1 mt-5 pa-2 d-flex justify-center"
-                                >
-
-                                <v-btn fab icon small class="text-center">
-                                  <v-icon
-                                    color="#666666"
-                                    size="25"
-                                    class="ml-1"
-                                  >
-                                    mdi-trash-can-outline
-                                  </v-icon>
-                                </v-btn>
-                                </v-col>
-                              </v-row>
+                            <v-col class="col-12 mt-0 ml-4 pa-2">
+                                <lista-envios></lista-envios>
                             </v-col>
                           </v-row>
                         </v-col>
@@ -172,11 +100,11 @@
 
 export default {
   data() {
-      return{
-        alert:'',
-      }
-  }
-}
+    return {
+      alert: "",
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>

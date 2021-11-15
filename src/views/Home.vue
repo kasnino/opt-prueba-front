@@ -2,12 +2,12 @@
   <div class="home">
     <v-row class="mt-5 justify-center pa-0 ma-0" style="width: 100%">
       <v-col
-        cols="12"
+        col="11"
         md="5"
         lg="5"
         class="d-flex justify-start pa-3"
         :class="{
-          'pa-0 ma-0 ': $vuetify.breakpoint.xsOnly,
+          'pa-2 ma-0 justify-center': $vuetify.breakpoint.xsOnly,
         }"
       >
         <login-app></login-app>
@@ -22,15 +22,21 @@
             $vuetify.breakpoint.xsOnly,
         }"
       >
-        <v-row class="justify-start align-center text-center">
-          <v-col class="col-10  mt-6 pa-0 ma-0">
+        <v-row
+          class="justify-start align-center text-center"
+          style="width: 100%"
+          :class="{
+            'pa-2 ma-0 justify-center': $vuetify.breakpoint.xsOnly,
+          }"
+        >
+          <v-col class="col-10 mt-6 pa-0 ma-0">
             <div class="texto--home">
               Descubre la maravilla de tener
               <span style="color: #e30613">al alcance de tus manos</span>,
               aquello que estaba lejos
             </div>
           </v-col>
-          <v-row class="p-0 m-0 mt-6">
+          <v-row class="p-0 m-0 mt-6" style="width: 100%">
             <v-col
               class="col-12 d-flex mt-7 justify-start align-start text-center"
             >
@@ -38,9 +44,9 @@
                 class="pa-4 rounded-lg ml-0 card-area"
                 width="570px"
                 height="320px"
-                style="border: 1px solid #666"
+                style="border: 1px solid #eaeaea; height: 320px; overflow-y: scroll"
               >
-                <div class="space"></div>
+                <lista-envios></lista-envios>
               </v-card>
             </v-col>
           </v-row>

@@ -241,7 +241,7 @@ export default {
   },
   methods: {
     resetValidation() {
-      return this.$router.push({ name: "dashboard" });
+      return this.$router.push({ name: "home" });
     },
   },
 };

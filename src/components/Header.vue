@@ -23,7 +23,7 @@
         color="white"
         height="75px"
       >
-        <v-row>
+        <v-row v-if="$vuetify.breakpoint.mdAndUp">
           <v-col class="col-5 d-flex justify-end align-center text-center">
             <div class="align-center justify-center text-center">
               <img :src="require('@/assets/telf.png')" />

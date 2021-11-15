@@ -1,7 +1,9 @@
 <template>
-  <v-row class="p-0 m-0 mt-1 d-flex justify-center">
+  <v-row class="pa-2 m-0 mt-1 d-flex justify-center">
     <div class="">
-      <v-col class="col-12">
+      <v-col class="col-12" sm="12"    :class="{
+          'pa-2 ma-2 justify-center': $vuetify.breakpoint.xsOnly,
+        }">
         <div class="">
           <v-card class="pa-4 rounded-lg card--login elevation-3" width="410px">
             <div class="space"></div>

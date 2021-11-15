@@ -18,6 +18,10 @@ import registro from "@/components/RegistroAlerta";
 Vue.component("registro-app", registro);
 
 
+import listaEnvios from "@/components/ListEnvios";
+Vue.component("lista-envios", listaEnvios);
+
+
 Vue.config.productionTip = false;
 
 new Vue({

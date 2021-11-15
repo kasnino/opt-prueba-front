@@ -2,7 +2,11 @@
   <v-app>
     <header-app></header-app>
     <v-main class="container--main pa-2">
-      <v-row>
+       <v-row class="justify-center pa-0 ma-0" style="width: 100%"
+          :class="{
+          'pa-2 ma-0 justify-center': $vuetify.breakpoint.smAndUp,
+        }"
+       >
         <v-col class="col-2 pa-0 ma-0" v-if="$vuetify.breakpoint.smAndUp">
           <v-navigation-drawer permanent width="100%" height="500" v-if="this.$route.name == 'dashboard'">
             <v-row class="fill-height" no-gutters>
@@ -22,7 +26,7 @@
             </v-row>
           </v-navigation-drawer>
         </v-col>
-        <v-col class="col-10 pa-0 ma-0">
+        <v-col class="col-12 col-sm-10 pa-0 ma-0">
           <router-view />
         </v-col>
       </v-row>
