@@ -1,19 +1,30 @@
 # opt-prueba-front
 
 Para poder correr este codigo necesitas --->
-
+```
 node v-14.15.0
+```
+```
 @vue/cli 4.5.3
+```
+```
 npm install
+```
+```
 npm run serve
+```
 
-
-
-
+## Project
+Link Demo::
+```
+http://plausible-stocking.surge.sh/
+## Project
+```
 
 ## Project
 ```
-Se Maqueto los diferentes componentes usando el framework vuetify, tomando esta decision por la cantidad de Form (input) que requeria la AppWeb
+Se Maqueto los diferentes componentes usando el framework vuetify, tomando esta decision por la 
+cantidad de Form (input) que requeria la AppWeb
 haciendo mas facil la validacion y el maquetado.
 ```
 
