@@ -17,8 +17,7 @@ npm run serve
 ## Project
 Link Demo::
 ```
-http://plausible-stocking.surge.sh/
-## Project
+[Link to Google](http://plausible-stocking.surge.sh/)
 ```
 
 ## Project
