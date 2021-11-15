@@ -1,8 +1,20 @@
 # opt-prueba-front
 
-## Project setup
-```
+Para poder correr este codigo necesitas --->
+
+node v-14.15.0
+@vue/cli 4.5.3
 npm install
+npm run serve
+
+
+
+
+
+## Project
+```
+Se Maqueto los diferentes componentes usando el framework vuetify, tomando esta decision por la cantidad de Form (input) que requeria la AppWeb
+haciendo mas facil la validacion y el maquetado.
 ```
 
 ### Compiles and hot-reloads for development
